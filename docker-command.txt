@@ -1,0 +1,10 @@
+>docker build --tag python-django .     => Pour créer notre image docker avec pour nom python-django (Ne pas oublier le point à la fin pour build tout les fichier dans le dossier courant)
+
+>docker run --publish 8000:8000 python-django    => Pour créer le container issue de l'image précédente
+
+
+/***************************** DOCKER-COMPOSE ***********************************/
+
+Build Docker Images and Containers named docker-compose.yml:
+
+>docker-compose up -d

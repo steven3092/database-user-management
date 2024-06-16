@@ -1,0 +1,68 @@
+/************************************************************ INSTALLER DJANGO/PYTHON *******************************************************************************/
+Tout d'abord installer python à partir de "python.org" et bien valider les les variables d'environnement PATH.
+
+>python    =>run l'executable python 
+>python --version  =>donne la version de python
+
+
+Il faut installer django avec pip (pip permet d'imstaller des dépendance/package comme npm ou yarn)
+
+>pip install --upgrade pip   =>pour mettre à jour pip
+>pip install django==3.1.6   =>pour installer la version 3.1.6 de django
+
+
+>python -m django --version    =>pour vérifier si django est installé, on devrait avoir 3.1.6
+
+
+Vérifier où se trouve django-admin pour pouvoir créer notre projet
+>C:/Users/sfaut/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/Scripts/django-admin
+
+Une fois que c'est bon
+>../django-admin startproject nameProject
+
+Et voilà!! Notre projet est créer.
+
+On peut utiliser le fichier manage.py pour run le server local
+
+>python manage.py runserver
+
+
+/*********************************************************** UTILISATION COMMANDE DE BASE PYTHON *************************************************************************/
+> Modifiez les modèles (dans models.py).
+> Exécutez "python manage.py makemigrations" pour créer des migrations correspondant à ces changements.
+> Exécutez "python manage.py sqlmigrate polls 0001"
+> Exécutez "python manage.py migrate" pour appliquer ces modifications à la base de données.
+
+
+/*********************************************************** POUR EVITER LES CORS ***************************************************************************************/
+
+Installer "pip install django-cors-headers"
+
+Puis dans le fichier settings.py ajouter :
+    CORS_ORIGIN_ALLOW_ALL = True
+    ALLOWED_HOSTS = ['*']
+Et dans les middlewares : 
+    MIDDLEWARE = [  # Or MIDDLEWARE_CLASSES on Django < 1.10
+        ...
+        'corsheaders.middleware.CorsMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        ...
+    ]
+
+/*********************************************************** POUR FAIRE UNE API REST AVEC DJANGO ***************************************************************************/
+
+1/ Installer "pip install djangorestframework"
+
+2/ Puis Serialize son Model (=convertir son Model en JSON) (fichier serializers.py)
+
+3/ Ensuite, il faut requeter la base de donnée et faire passer le résultat de la requête dans le serializer pour le convertir en JSON (fichier views.py)
+
+4/ Ajouter l'url de notre API que nous venons de créer (fichier mysite/urls.py)
+
+5/ Modifier le fichier users/urls.py pour ajouter le REST framework router pour que les requêtes 
+aboutissent dynamiquement, et en cas d'ajout ou de suppression à la BDD les données match
+
+/************************************************************ MISE EN PLACE DU DOCKER ************************************************************************************/
+Tout d'abord figé la version de notre environnement Django
+
+>pip freeze > requirements.txt   =>Save la version de Djongo, Pyhton, sql utilisé.
