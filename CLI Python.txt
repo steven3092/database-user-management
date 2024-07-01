@@ -1,17 +1,18 @@
 /************************************************************ INSTALLER DJANGO/PYTHON *******************************************************************************/
 Tout d'abord installer python à partir de "python.org" et bien valider les les variables d'environnement PATH.
 
->python    =>run l'executable python 
->python --version  =>donne la version de python
+>python3    =>run l'executable python 
+>python3 --version  =>donne la version de python
 
 
 Il faut installer django avec pip (pip permet d'imstaller des dépendance/package comme npm ou yarn)
 
->pip install --upgrade pip   =>pour mettre à jour pip
->pip install django==3.1.6   =>pour installer la version 3.1.6 de django
+>python3 -m pip install --upgrade pip   =>pour mettre à jour pip
+>pip3 --version
+>pip3 install django==3.1.6   =>pour installer la version 3.1.6 de django
 
 
->python -m django --version    =>pour vérifier si django est installé, on devrait avoir 3.1.6
+>python3 -m django --version    =>pour vérifier si django est installé, on devrait avoir 3.1.6
 
 
 Vérifier où se trouve django-admin pour pouvoir créer notre projet
@@ -24,7 +25,7 @@ Et voilà!! Notre projet est créer.
 
 On peut utiliser le fichier manage.py pour run le server local
 
->python manage.py runserver
+>python3 manage.py runserver (installer les dependances necessaire)
 
 
 /*********************************************************** UTILISATION COMMANDE DE BASE PYTHON *************************************************************************/
